@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637518926382487630
-    m_Hash: 89716064
+      ticks: 637528421891578304
+    m_Hash: 1611608066
   m_LockFileStatus:
     m_FilePath: D:/Unity Projects/Environmental Design Game/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637518926388162509
-    m_Hash: 3376874238
+      ticks: 637528421898699475
+    m_Hash: 4073699355
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -114,6 +114,108 @@ m_PackageAssets:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
         revision: fa825106f349f996acff22f718845eab46ca2d7c
+        path: 
+    - packageId: com.unity.formats.fbx@4.0.1
+      testable: 0
+      isDirectDependency: 1
+      version: 4.0.1
+      source: 1
+      resolvedPath: D:\Unity Projects\Environmental Design Game\Library\PackageCache\com.unity.formats.fbx@4.0.1
+      assetPath: Packages/com.unity.formats.fbx
+      name: com.unity.formats.fbx
+      displayName: FBX Exporter
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: "The Unity FBX Exporter package makes it easy to send geometry
+        and animation to any application that supports the FBX format and send them
+        back to Unity with minimal effort.\n\nIn particular, this round-trip workflow
+        enables you to export Unity Scenes to FBX files, import them into Autodesk\xAE
+        Maya\xAE, Autodesk\xAE Maya LT\u2122, or Autodesk\xAE 3ds Max\xAE using an
+        artist-friendly interface, export Unity-ready FBX geometry and animation,
+        and safely merge your changes back into those Assets to continue your work
+        in Unity."
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 2.0.1-preview.2
+        - 2.0.1-preview.3
+        - 2.0.1-preview.4
+        - 2.0.1-preview.5
+        - 2.0.1-preview.11
+        - 2.0.2-preview.1
+        - 2.0.3-preview.3
+        - 3.0.0-preview.2
+        - 3.0.1-preview.2
+        - 3.1.0-preview.1
+        - 3.2.0-preview.2
+        - 3.2.1-preview.2
+        - 4.0.0-pre.1
+        - 4.0.0-pre.4
+        - 4.0.1
+        compatible:
+        - 2.0.1-preview.2
+        - 2.0.1-preview.4
+        - 2.0.1-preview.5
+        - 2.0.1-preview.11
+        - 2.0.2-preview.1
+        - 2.0.3-preview.3
+        - 3.0.0-preview.2
+        - 3.0.1-preview.2
+        - 3.1.0-preview.1
+        - 3.2.0-preview.2
+        - 3.2.1-preview.2
+        - 4.0.0-pre.1
+        - 4.0.0-pre.4
+        - 4.0.1
+        verified: 
+      dependencies:
+      - name: com.unity.timeline
+        version: 1.0.0
+      - name: com.autodesk.fbx
+        version: 4.0.1
+      resolvedDependencies:
+      - name: com.unity.timeline
+        version: 1.4.7
+      - name: com.unity.modules.director
+        version: 1.0.0
+      - name: com.unity.modules.audio
+        version: 1.0.0
+      - name: com.unity.modules.animation
+        version: 1.0.0
+      - name: com.unity.modules.particlesystem
+        version: 1.0.0
+      - name: com.autodesk.fbx
+        version: 4.0.1
+      keywords:
+      - fbx
+      - animation
+      - modeling
+      - maya
+      - max
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637510995250000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/com.unity.formats.fbx.git
+        revision: 453f9888c14cc98664b7c296cf297f2956ca573e
         path: 
     - packageId: com.unity.ide.rider@2.0.7
       testable: 0
@@ -2807,6 +2909,83 @@ m_PackageAssets:
         type: git
         url: git+https://github.com/Unity-Technologies/com.unity.settings-manager.git
         revision: 473664ccba1496294b741cf169740a5d54b3d0b6
+        path: 
+    - packageId: com.autodesk.fbx@4.0.1
+      testable: 0
+      isDirectDependency: 0
+      version: 4.0.1
+      source: 1
+      resolvedPath: D:\Unity Projects\Environmental Design Game\Library\PackageCache\com.autodesk.fbx@4.0.1
+      assetPath: Packages/com.autodesk.fbx
+      name: com.autodesk.fbx
+      displayName: Autodesk FBX SDK for Unity
+      author:
+        name: Unity
+        email: 
+        url: 
+      category: 
+      type: 
+      description: "This package provides Unity C# bindings to the Autodesk\xAE FBX\xAE
+        SDK."
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 2.0.0-preview
+        - 2.0.0-preview.4
+        - 2.0.0-preview.5
+        - 2.0.0-preview.6
+        - 2.0.0-preview.7
+        - 2.0.1-preview.1
+        - 3.0.0-preview.1
+        - 3.0.1-preview.1
+        - 3.1.0-preview.1
+        - 3.1.0-preview.2
+        - 4.0.0-pre.1
+        - 4.0.0-pre.2
+        - 4.0.1
+        compatible:
+        - 2.0.0-preview
+        - 2.0.0-preview.4
+        - 2.0.0-preview.5
+        - 2.0.0-preview.6
+        - 2.0.0-preview.7
+        - 2.0.1-preview.1
+        - 3.0.0-preview.1
+        - 3.0.1-preview.1
+        - 3.1.0-preview.1
+        - 3.1.0-preview.2
+        - 4.0.0-pre.1
+        - 4.0.0-pre.2
+        - 4.0.1
+        verified: 
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - fbx
+      - animation
+      - modeling
+      - maya
+      - max
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637510995090000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/com.autodesk.fbx.git
+        revision: 3b923c5eaa7b71ef28f6b879559339c84e6f1b10
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
