@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour{
-    public float movementSpeed = 10f;
+    public float movementSpeed;
+    
     public float jumpHeight = 5f;
-    float heightValue;
+    private float heightValue;
+    private bool canJump = true;
+
     public float horizontalSensitivity = 100f;
     public float verticalSensitivity = 100f;
-    public float gravitationalPull = 9.8f;
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
-    bool canJump = true;
-    bool paused = false;
+    public float gravitationalPull = 9.8f;
+    
+    //private bool paused = false;
 
-    Rigidbody rb;
+    private Rigidbody rb;
     public new GameObject camera;
 
     //Start Method
@@ -48,22 +51,22 @@ public class PlayerController : MonoBehaviour{
         //----------------------------------MOVEMENT-------------------------------------------
         //Forward
         if(Input.GetKey(KeyCode.W)) {
-            rb.AddRelativeForce(Vector3.forward * movementSpeed);
+            rb.AddRelativeForce(new Vector3(0, 0, movementSpeed));
             
         }
 
         //Left
         if(Input.GetKey(KeyCode.A)) {
-            rb.AddRelativeForce(Vector3.left * movementSpeed);
+            rb.AddRelativeForce(new Vector3(-movementSpeed, 0, 0));
         }
 
         //Back
         if(Input.GetKey(KeyCode.S)) {
-            rb.AddRelativeForce(Vector3.back * movementSpeed);
+            rb.AddRelativeForce(new Vector3(0, 0, -movementSpeed));
         }
         //Right
         if(Input.GetKey(KeyCode.D)) {
-            rb.AddRelativeForce(Vector3.right * movementSpeed);
+            rb.AddRelativeForce(new Vector3(movementSpeed, 0, 0));
         }
 
         //----------------------------------TURNING-------------------------------------------
