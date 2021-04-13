@@ -8,12 +8,17 @@ public class UIController : MonoBehaviour{
 
     public Text interact;
     public Text paused;
+    public Text FPS;
     public GameObject pauseMenuPanel;
     public Button resume;
     public Button quit;
 
+
     public bool gamePaused;
-    
+    private int fpsCount;
+    private float fpsRefreshRate = 0.5f;
+    private float timer;
+
     // Start is called before the first frame update
     void Start(){
         interact.enabled = false;
@@ -22,7 +27,7 @@ public class UIController : MonoBehaviour{
         pauseMenuPanel.SetActive(false);
         resume.gameObject.SetActive(false);
         quit.gameObject.SetActive(false);
-
+        FPS.enabled = true;
 
         resume.onClick.AddListener(ResumeGame);
         quit.onClick.AddListener(QuitGame);
@@ -30,6 +35,12 @@ public class UIController : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        // FPS Counter
+        if (Time.unscaledTime > timer) { 
+            fpsCount = (int)(1f / Time.unscaledDeltaTime);
+            FPS.text = "FPS: " + fpsCount;
+            timer = Time.unscaledTime + fpsRefreshRate;
+        }
 
         //----------------------------------Pause-------------------------------------------
         if(Input.GetKeyDown(KeyCode.Escape)) {
