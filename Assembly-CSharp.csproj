@@ -74,6 +74,7 @@
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Models\GrainModel.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\PostProcessingModel.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\PostProcessingProfile.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Components\GrainComponent.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\PostProcessingContext.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Components\MotionBlurComponent.cs" />
@@ -100,10 +101,11 @@
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Models\DepthOfFieldModel.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Components\AmbientOcclusionComponent.cs" />
+    <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Models\AntialiasingModel.cs" />
     <Compile Include="Assets\Assets\FurniturePack\PostProcessing\Runtime\Models\DitheringModel.cs" />
-    <Compile Include="Assets\Scripts\UIController.cs" />
-    <Compile Include="Assets\Scripts\MainMenuController.cs" />
+    <Compile Include="Assets\Scripts\LocationController.cs" />
+    <Compile Include="Assets\Scripts\TriggerController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

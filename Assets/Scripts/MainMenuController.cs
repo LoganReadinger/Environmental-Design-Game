@@ -8,7 +8,6 @@ public class MainMenuController : MonoBehaviour{
     public Button begin;
     public Button quit;
 
-    // Start is called before the first frame update
     void Start(){
         begin.onClick.AddListener(Begin);
         quit.onClick.AddListener(Quit);

@@ -5,19 +5,21 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour{
-
     public Text interact;
     public Text paused;
     public Text FPS;
     public GameObject pauseMenuPanel;
+    public GameObject blackScreen;
     public Button resume;
     public Button quit;
-
+    private Image blackScreenImage;
 
     public bool gamePaused;
+    public bool dim;
     private int fpsCount;
     private float fpsRefreshRate = 0.5f;
     private float timer;
+
 
     // Start is called before the first frame update
     void Start(){
@@ -35,8 +37,8 @@ public class UIController : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        // FPS Counter
-        if (Time.unscaledTime > timer) { 
+        //----------------------------------FPS Counter-------------------------------------------
+        if(Time.unscaledTime > timer) { 
             fpsCount = (int)(1f / Time.unscaledDeltaTime);
             FPS.text = "FPS: " + fpsCount;
             timer = Time.unscaledTime + fpsRefreshRate;
@@ -51,6 +53,8 @@ public class UIController : MonoBehaviour{
                 ResumeGame();
             }
         }
+
+        //----------------------------------Dimming Screen-------------------------------------------
     }
 
     void ResumeGame() {
@@ -74,4 +78,5 @@ public class UIController : MonoBehaviour{
     void QuitGame() {
         SceneManager.LoadScene("level_mainmenu");
     }
+
 }

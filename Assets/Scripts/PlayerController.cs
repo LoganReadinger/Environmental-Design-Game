@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour{
     //Gravity
     public float gravitationalPull = 9.8f;
     
-
     //Objects
     private Rigidbody rb;
     public new GameObject camera;
@@ -32,6 +31,10 @@ public class PlayerController : MonoBehaviour{
     //UI
     private GameObject canvas;
     private UIController ui;
+    private static string code;
+
+    //Trigger
+    private TriggerController triggerController;
 
     //----------------------------------START-------------------------------------------
     void Start(){
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour{
 
         canvas = GameObject.Find("Canvas");
         ui = canvas.GetComponent<UIController>();
+        triggerController = this.GetComponent<TriggerController>();
     }
 
     //----------------------------------UPDATE-------------------------------------------
@@ -98,13 +102,22 @@ public class PlayerController : MonoBehaviour{
             camera.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
 
             //----------------------------------Interaction-------------------------------------------
+            //If the ray collides
             if(Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 1.0f)) {
                 Debug.DrawRay(camera.transform.position, camera.transform.forward * 1.0f, Color.green);
 
-                ui.interact.enabled = true;
+                //If ray collides with trigger
+                if(hit.collider.isTrigger) {
+                    ui.interact.enabled = true;
 
+                    //If player presses E
+                    if(Input.GetKey(KeyCode.E)) {
+                        string triggerName = hit.collider.name;
 
-
+                        //Active Trigger and return decision
+                        code += triggerController.Trigger(triggerName); 
+                    }
+                }
             } else {
                 Debug.DrawRay(camera.transform.position, camera.transform.forward * 1.0f, Color.red);
 
@@ -112,4 +125,6 @@ public class PlayerController : MonoBehaviour{
             }
         }
     }
+
+    
 }
