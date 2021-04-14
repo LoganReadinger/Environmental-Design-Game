@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TriggerController : MonoBehaviour{
-    private string[] lvl_nature_triggers = new string[7];
-
     public GameObject path1_left1;
     public GameObject path1_left2;
     public GameObject path1_right1;
@@ -26,26 +24,18 @@ public class TriggerController : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
-        //----------------------------------Triggers-------------------------------------------
-        lvl_nature_triggers[0] = "lvl_nature_path1_left";
-        lvl_nature_triggers[1] = "lvl_nature_path1_right";
-        lvl_nature_triggers[2] = "lvl_nature_path2_left";
-        lvl_nature_triggers[3] = "lvl_nature_path2_right";
-        lvl_nature_triggers[4] = "lvl_nature_path3_left";
-        lvl_nature_triggers[5] = "lvl_nature_path3_right";
-        lvl_nature_triggers[6] = "lvl_nature_path4_left";
-
-
         //----------------------------------lvl_nature fences-------------------------------------------
         if(SceneManager.GetActiveScene().name == "level_nature") {
             path1_left1.SetActive(false);
             path1_left2.SetActive(false);
             path1_right1.SetActive(false);
             path1_right2.SetActive(false);
+
             path2_left1.SetActive(false);
             path2_left2.SetActive(false);
             path2_right1.SetActive(false);
             path2_right2.SetActive(false);
+            
             path3_left1.SetActive(false);
             path3_left2.SetActive(false);
             path3_right1.SetActive(false);
@@ -201,8 +191,53 @@ public class TriggerController : MonoBehaviour{
 
         //---------Level_Nature---------
         if(sceneName == "level_nature") {
+            //Path 1
+            if(triggerName == "lvl_nature_path1_left") {
+                path1_right1.SetActive(true);
+                path1_right2.SetActive(true);
 
-            return "0";
+                return "0";
+            } else if(triggerName == "lvl_nature_path1_right") {
+                path1_left1.SetActive(true);
+                path1_left2.SetActive(true);
+
+                return "1";
+            }
+
+            //Path 2
+            if(triggerName == "lvl_nature_path2_left") {
+                path2_right1.SetActive(true);
+                path2_right2.SetActive(true);
+
+                return "0";
+            } else if(triggerName == "lvl_nature_path2_right") {
+                path2_left1.SetActive(true);
+                path2_left2.SetActive(true);
+                
+                return "1";
+            }
+
+            //Path 3
+            if(triggerName == "lvl_nature_path3_left") {
+                path3_right1.SetActive(true);
+                path3_right2.SetActive(true);
+
+                return "0";
+            } else if(triggerName == "lvl_nature_path3_right") {
+                path3_left1.SetActive(true);
+                path3_left2.SetActive(true);
+                
+                return "1";
+            }
+
+            //Path 4
+            if(triggerName == "lvl_nature_path4_left") {
+                return "1";
+            }
+
+            if(triggerName == "lvl_nature_results") {
+                SceneManager.LoadScene("level_score");
+            }
         }
 
         return null;

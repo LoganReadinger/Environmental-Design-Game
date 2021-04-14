@@ -12,14 +12,13 @@ public class UIController : MonoBehaviour{
     public GameObject blackScreen;
     public Button resume;
     public Button quit;
-    private Image blackScreenImage;
+    public Text score;
 
     public bool gamePaused;
     public bool dim;
     private int fpsCount;
     private float fpsRefreshRate = 0.5f;
     private float timer;
-
 
     // Start is called before the first frame update
     void Start(){
@@ -38,7 +37,7 @@ public class UIController : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         //----------------------------------FPS Counter-------------------------------------------
-        if(Time.unscaledTime > timer) { 
+        if(Time.unscaledTime > timer) {
             fpsCount = (int)(1f / Time.unscaledDeltaTime);
             FPS.text = "FPS: " + fpsCount;
             timer = Time.unscaledTime + fpsRefreshRate;
@@ -53,8 +52,6 @@ public class UIController : MonoBehaviour{
                 ResumeGame();
             }
         }
-
-        //----------------------------------Dimming Screen-------------------------------------------
     }
 
     void ResumeGame() {

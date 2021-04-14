@@ -103639,7 +103639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329466510810037350, guid: 0b4cabf75a8ebc0479b6bfbb857b3f0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.25
+      value: -44.46
       objectReference: {fileID: 0}
     - target: {fileID: 1329466510810037350, guid: 0b4cabf75a8ebc0479b6bfbb857b3f0b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -103712,7 +103712,6 @@ MonoBehaviour:
   path3_left2: {fileID: 0}
   path3_right1: {fileID: 0}
   path3_right2: {fileID: 0}
-  decisionCode: 
 --- !u!114 &1746519029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121736,7 +121735,6 @@ MonoBehaviour:
   blackScreen: {fileID: 478017250}
   resume: {fileID: 1820421700}
   quit: {fileID: 1678115977}
-  code: {fileID: 1175831250}
   gamePaused: 0
   dim: 0
 --- !u!114 &2022696336

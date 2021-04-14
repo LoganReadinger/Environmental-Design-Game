@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour{
     //Movement
@@ -35,6 +36,9 @@ public class PlayerController : MonoBehaviour{
 
     //Trigger
     private TriggerController triggerController;
+    private float triggerDelay = 1.5f; // Seconds
+    private float timer = 0f;
+    private bool startDelay = false;
 
     //----------------------------------START-------------------------------------------
     void Start(){
@@ -110,9 +114,10 @@ public class PlayerController : MonoBehaviour{
                 if(hit.collider.isTrigger) {
                     ui.interact.enabled = true;
 
-                    //If player presses E
-                    if(Input.GetKey(KeyCode.E)) {
+                    //If player presses E or walks through
+                    if((Input.GetKey(KeyCode.E) && startDelay == false ) || (SceneManager.GetActiveScene().name == "level_nature" && startDelay == false)) {
                         string triggerName = hit.collider.name;
+                        startDelay = true;
 
                         //Active Trigger and return decision
                         code += triggerController.Trigger(triggerName); 
@@ -123,6 +128,20 @@ public class PlayerController : MonoBehaviour{
 
                 ui.interact.enabled = false;
             }
+        }
+
+        if(startDelay) {
+            timer += Time.deltaTime;
+            
+            if(timer >= triggerDelay) {
+                startDelay = false;
+                timer = 0;
+            }
+        }
+
+        //Load the final score
+        if(SceneManager.GetActiveScene().name == "level_score") {
+            ui.score.text = code;
         }
     }
 
