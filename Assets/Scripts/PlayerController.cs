@@ -120,8 +120,16 @@ public class PlayerController : MonoBehaviour{
                 if(hit.collider.isTrigger) {
                     ui.interact.enabled = true;
 
+                    //Disable UI text for triggers that aren't the final paper
+                    if(SceneManager.GetActiveScene().name == "level_nature" && hit.collider.name != "lvl_nature_results") {
+                        ui.interact.enabled = false;
+                    } else if(SceneManager.GetActiveScene().name == "level_nature" && hit.collider.name == "lvl_nature_results") {
+                        ui.interact.enabled = true;
+                    }
+
+
                     //If player presses E (lvl_doors or lvl_structures) or walks through trigger (lvl_nature)
-                    if((Input.GetKey(KeyCode.E) && startDelay == false ) || (SceneManager.GetActiveScene().name == "level_nature" && startDelay == false)) {
+                    if((Input.GetKey(KeyCode.E) && startDelay == false ) || (SceneManager.GetActiveScene().name == "level_nature" && startDelay == false && hit.collider.name != "lvl_nature_results")) {
                         string triggerName = hit.collider.name;
                         hit.collider.enabled = false;
                         startDelay = true;
