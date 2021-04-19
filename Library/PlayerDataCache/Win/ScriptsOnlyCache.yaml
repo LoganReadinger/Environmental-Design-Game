@@ -241,8 +241,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -1443,5 +1441,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/level_structures.unity
   - Assets/Scenes/level_nature.unity
   - Assets/Scenes/level_code.unity
-  playerPath: D:/Unity Projects/Environmental Design Game/Builds/Version 1.0/Environmental
+  playerPath: D:/Unity Projects/Environmental Design Game/Builds/Version 1.1/Environmental
     Design Game.exe
