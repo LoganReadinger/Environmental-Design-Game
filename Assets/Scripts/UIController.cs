@@ -24,12 +24,13 @@ public class UIController : MonoBehaviour{
         interact.enabled = false;
         paused.enabled = false;
         gamePaused = false;
+
         pauseMenuPanel.SetActive(false);
         resume.gameObject.SetActive(false);
         quit.gameObject.SetActive(false);
         FPS.enabled = true;
 
-        resume.onClick.AddListener(ResumeGame);
+        resume.onClick.AddListener(ButtonResume);
         quit.onClick.AddListener(QuitGame);
     }
 
@@ -44,11 +45,17 @@ public class UIController : MonoBehaviour{
 
         //----------------------------------Pause-------------------------------------------
         if(Input.GetKeyDown(KeyCode.Escape)) {
-            if(gamePaused == false) { //Unpaused
-                PauseGame();
-            } else { //Paused
-                ResumeGame(); 
+            if(gamePaused) {
+                gamePaused = false;
+            } else {
+                gamePaused = true;
             }
+        }
+
+        if(gamePaused) {
+            PauseGame();
+        } else {
+            ResumeGame();
         }
 
         //----------------------------------Final UI-------------------------------------------
@@ -61,28 +68,40 @@ public class UIController : MonoBehaviour{
     // Resuming Game
     void ResumeGame() {
         Time.timeScale = 1f;
-        Cursor.visible = true;
+        Cursor.visible = false;
         gamePaused = false;
+
+        //UI
         paused.enabled = false;
         pauseMenuPanel.SetActive(false);
         resume.gameObject.SetActive(false);
+        resume.interactable = false;
         quit.gameObject.SetActive(false);
+        resume.interactable = false;
     }
 
     //Pausing Game
     void PauseGame() {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         Cursor.visible = true;
         gamePaused = true;
+        
+        //UI
         paused.enabled = true;
         pauseMenuPanel.SetActive(true);
         resume.gameObject.SetActive(true);
+        resume.interactable = true;
         quit.gameObject.SetActive(true);
+        quit.interactable = true;
     }
 
     //Quiting Game
     void QuitGame() {
         SceneManager.LoadScene("level_mainmenu");
+        
     }
 
+    void ButtonResume() {
+        gamePaused = false;
+    }
 }

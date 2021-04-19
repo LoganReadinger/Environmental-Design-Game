@@ -156,6 +156,11 @@ public class PlayerController : MonoBehaviour{
             //Convert the binary to an integer and display
             ui.code.text = System.Convert.ToInt32(finalCode, 2).ToString();
         }
+
+        //Reset score if going to main menu
+        if(SceneManager.GetActiveScene().name == "level_mainmenu") {
+            finalCode = "";
+        }
     }
 
     
