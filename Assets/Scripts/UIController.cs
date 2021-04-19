@@ -12,10 +12,9 @@ public class UIController : MonoBehaviour{
     public GameObject blackScreen;
     public Button resume;
     public Button quit;
-    public Text score;
+    public Text code;
 
     public bool gamePaused;
-    public bool dim;
     private int fpsCount;
     private float fpsRefreshRate = 0.5f;
     private float timer;
@@ -45,17 +44,24 @@ public class UIController : MonoBehaviour{
 
         //----------------------------------Pause-------------------------------------------
         if(Input.GetKeyDown(KeyCode.Escape)) {
-            if(gamePaused == false) {
+            if(gamePaused == false) { //Unpaused
                 PauseGame();
-
-            } else {
-                ResumeGame();
+            } else { //Paused
+                ResumeGame(); 
             }
+        }
+
+        //----------------------------------Final UI-------------------------------------------
+        if(SceneManager.GetActiveScene().name == "level_code") {
+            Cursor.visible = true;
+            quit.gameObject.SetActive(true);
         }
     }
 
+    // Resuming Game
     void ResumeGame() {
         Time.timeScale = 1f;
+        Cursor.visible = true;
         gamePaused = false;
         paused.enabled = false;
         pauseMenuPanel.SetActive(false);
@@ -63,8 +69,10 @@ public class UIController : MonoBehaviour{
         quit.gameObject.SetActive(false);
     }
 
+    //Pausing Game
     void PauseGame() {
         Time.timeScale = 0f;
+        Cursor.visible = true;
         gamePaused = true;
         paused.enabled = true;
         pauseMenuPanel.SetActive(true);
@@ -72,6 +80,7 @@ public class UIController : MonoBehaviour{
         quit.gameObject.SetActive(true);
     }
 
+    //Quiting Game
     void QuitGame() {
         SceneManager.LoadScene("level_mainmenu");
     }

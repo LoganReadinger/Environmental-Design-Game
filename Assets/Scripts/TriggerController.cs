@@ -51,7 +51,7 @@ public class TriggerController : MonoBehaviour{
     public string Trigger(string triggerName) {
         //Get current scene name
         string sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log(sceneName + " : " + triggerName);
+        //Debug.Log(sceneName + " : " + triggerName);
 
         //---------Level_Doors---------
         if(sceneName == "level_doors") {
@@ -93,12 +93,12 @@ public class TriggerController : MonoBehaviour{
 
             //Room 5
             if(triggerName == "lvl_doors_room5_left") {
-                SceneManager.LoadScene("level_structures");
                 player.position = locationController.locations["lvl_structures_room1"];
+                SceneManager.LoadScene("level_structures");
                 return "0";
             } else if(triggerName == "lvl_doors_room5_right") {
-                SceneManager.LoadScene("level_structures");
                 player.position = locationController.locations["lvl_structures_room1"];
+                SceneManager.LoadScene("level_structures");
                 return "1";
             }
         }
@@ -179,12 +179,12 @@ public class TriggerController : MonoBehaviour{
 
             //Room 7
             if(triggerName == "lvl_structures_room7_left") {
-                SceneManager.LoadScene("level_nature");
                 player.position = locationController.locations["lvl_nature"];
+                SceneManager.LoadScene("level_nature");
                 return "0";
             } else if(triggerName == "lvl_structures_room7_right") {
-                SceneManager.LoadScene("level_nature");
                 player.position = locationController.locations["lvl_nature"];
+                SceneManager.LoadScene("level_nature");
                 return "1";
             }
         }
@@ -193,6 +193,7 @@ public class TriggerController : MonoBehaviour{
         if(sceneName == "level_nature") {
             //Path 1
             if(triggerName == "lvl_nature_path1_left") {
+                path1_left1.SetActive(true);
                 path1_right1.SetActive(true);
                 path1_right2.SetActive(true);
 
@@ -200,12 +201,14 @@ public class TriggerController : MonoBehaviour{
             } else if(triggerName == "lvl_nature_path1_right") {
                 path1_left1.SetActive(true);
                 path1_left2.SetActive(true);
+                path1_right1.SetActive(true);
 
                 return "1";
             }
 
             //Path 2
             if(triggerName == "lvl_nature_path2_left") {
+                path2_left1.SetActive(true);
                 path2_right1.SetActive(true);
                 path2_right2.SetActive(true);
 
@@ -213,12 +216,14 @@ public class TriggerController : MonoBehaviour{
             } else if(triggerName == "lvl_nature_path2_right") {
                 path2_left1.SetActive(true);
                 path2_left2.SetActive(true);
-                
+                path2_right1.SetActive(true);
+
                 return "1";
             }
 
             //Path 3
             if(triggerName == "lvl_nature_path3_left") {
+                path3_left1.SetActive(true);
                 path3_right1.SetActive(true);
                 path3_right2.SetActive(true);
 
@@ -226,7 +231,8 @@ public class TriggerController : MonoBehaviour{
             } else if(triggerName == "lvl_nature_path3_right") {
                 path3_left1.SetActive(true);
                 path3_left2.SetActive(true);
-                
+                path3_right1.SetActive(true);
+
                 return "1";
             }
 
@@ -236,7 +242,7 @@ public class TriggerController : MonoBehaviour{
             }
 
             if(triggerName == "lvl_nature_results") {
-                SceneManager.LoadScene("level_score");
+                SceneManager.LoadScene("level_code");
             }
         }
 

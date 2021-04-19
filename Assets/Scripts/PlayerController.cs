@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour{
@@ -32,7 +31,9 @@ public class PlayerController : MonoBehaviour{
     //UI
     private GameObject canvas;
     private UIController ui;
-    private static string code;
+    private static string finalCode;
+    private string codeDigit;
+    private int position = 0;
 
     //Trigger
     private TriggerController triggerController;
@@ -51,6 +52,10 @@ public class PlayerController : MonoBehaviour{
         canvas = GameObject.Find("Canvas");
         ui = canvas.GetComponent<UIController>();
         triggerController = this.GetComponent<TriggerController>();
+
+        if(SceneManager.GetActiveScene().name == "level_doors") {
+            finalCode = "";
+        }
     }
 
     //----------------------------------UPDATE-------------------------------------------
@@ -59,7 +64,9 @@ public class PlayerController : MonoBehaviour{
         if(ui.gamePaused == false) {
             //----------------------------------JUMPING-------------------------------------------
             //Allow 1 Jump
-            if(Input.GetKeyDown(KeyCode.Space) && canJump) {
+            Debug.DrawRay(this.transform.position, -this.transform.up * 1.1f, Color.cyan);
+
+            if(Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(this.transform.position, -this.transform.up, out hit, 1.1f)) {
                 heightValue = jumpHeight;
                 canJump = false;
             }
@@ -79,7 +86,6 @@ public class PlayerController : MonoBehaviour{
             //Forward
             if(Input.GetKey(KeyCode.W)) {
                 rb.AddRelativeForce(new Vector3(0, 0, movementSpeed));
-
             }
 
             //Left
@@ -114,13 +120,15 @@ public class PlayerController : MonoBehaviour{
                 if(hit.collider.isTrigger) {
                     ui.interact.enabled = true;
 
-                    //If player presses E or walks through
+                    //If player presses E (lvl_doors or lvl_structures) or walks through trigger (lvl_nature)
                     if((Input.GetKey(KeyCode.E) && startDelay == false ) || (SceneManager.GetActiveScene().name == "level_nature" && startDelay == false)) {
                         string triggerName = hit.collider.name;
+                        hit.collider.enabled = false;
                         startDelay = true;
 
                         //Active Trigger and return decision
-                        code += triggerController.Trigger(triggerName); 
+                        codeDigit = triggerController.Trigger(triggerName);
+                        finalCode = finalCode.Insert(position, codeDigit.ToString());
                     }
                 }
             } else {
@@ -130,6 +138,10 @@ public class PlayerController : MonoBehaviour{
             }
         }
 
+        //Update Code UI
+        ui.code.text = finalCode;
+
+        //Delay between trigger interactions
         if(startDelay) {
             timer += Time.deltaTime;
             
@@ -140,8 +152,9 @@ public class PlayerController : MonoBehaviour{
         }
 
         //Load the final score
-        if(SceneManager.GetActiveScene().name == "level_score") {
-            ui.score.text = code;
+        if(SceneManager.GetActiveScene().name == "level_code") {
+            //Convert the binary to an integer and display
+            ui.code.text = System.Convert.ToInt32(finalCode, 2).ToString();
         }
     }
 
